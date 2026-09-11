@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Browse boundary-staked parcels across four regions, filter by price and plot size, and enquire with a field agent.",
+          "Browse boundary-staked parcels across four Indian cities, filter by price and plot size, and enquire with a field agent.",
       },
     ],
   }),
@@ -138,7 +138,7 @@ function Index() {
             Open ground, surveyed and ready to claim.
           </h1>
           <p className="mt-6 max-w-[50ch] text-pretty text-lg text-muted-ink">
-            Boundary-staked parcels across four regions — priced per acre, listed with clear title
+            Boundary-staked parcels across four Indian cities — priced per acre in rupees, listed with clear title
             and deed.
           </p>
 
@@ -296,7 +296,7 @@ function Index() {
                         </span>
                       </div>
                       <p className="mt-3 text-pretty text-sm text-muted-ink">
-                        {p.name} · {p.sqft.toLocaleString("en-US")} sq ft · {p.acres} acre
+                        {p.name} · {p.sqft.toLocaleString("en-IN")} sq ft · {p.acres} acre
                         {p.acres === 1 ? "" : "s"}
                       </p>
                       <p className="mt-1 text-pretty text-sm text-muted-ink">{p.notes}</p>
@@ -356,21 +356,21 @@ function Index() {
         <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
           <div className="flex flex-col rounded-[min(1.5vw,20px)] bg-pine p-8 text-paper">
             <p className="mb-4 text-xs uppercase tracking-[0.3em] text-sky">Your field agent</p>
-            <h2 className="font-serif text-3xl font-medium tracking-tight">Elena Marsh</h2>
+            <h2 className="font-serif text-3xl font-medium tracking-tight">Ananya Rao</h2>
             <p className="mt-1 text-sm text-paper/70">
-              Land Broker · 14 yrs · Riverbend &amp; Highfield
+              Land Broker · 14 yrs · Hyderabad &amp; Bengaluru
             </p>
             <img
               src={agentPortrait}
-              alt="Elena Marsh, land broker, standing beside boundary stakes in a field"
+              alt="Ananya Rao, land broker, standing beside boundary stakes in a field"
               loading="lazy"
               width={768}
               height={1024}
               className="mt-6 aspect-[3/4] w-full rounded-[min(1vw,12px)] object-cover ring-1 ring-white/20"
             />
             <div className="mt-6 space-y-1 text-sm text-paper/80">
-              <p>phone · +44 20 7946 1182</p>
-              <p>email · elena@terrafield.example</p>
+              <p>phone · +91 98490 11820</p>
+              <p>email · ananya@terrafield.example</p>
             </div>
           </div>
 
