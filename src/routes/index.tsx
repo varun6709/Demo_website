@@ -25,9 +25,13 @@ export const Route = createFileRoute("/")({
 });
 
 const priceBands = [
-  { id: "under250", label: "Under $250k", test: (p: number) => p < 250000 },
-  { id: "mid", label: "$250k – $600k", test: (p: number) => p >= 250000 && p <= 600000 },
-  { id: "over600", label: "$600k+", test: (p: number) => p > 600000 },
+  { id: "under25", label: "Under ₹25 lakh", test: (p: number) => p < 2500000 },
+  {
+    id: "mid",
+    label: "₹25 lakh – ₹1 crore",
+    test: (p: number) => p >= 2500000 && p <= 10000000,
+  },
+  { id: "over1cr", label: "₹1 crore+", test: (p: number) => p > 10000000 },
 ];
 
 const sizeBands = [
@@ -36,11 +40,15 @@ const sizeBands = [
   { id: "large", label: "Over 1 acre", test: (a: number) => a > 1 },
 ];
 
-const money = (n: number) => `$${n.toLocaleString("en-US")}`;
+const money = (n: number) => {
+  if (n >= 10000000) return `₹${(n / 10000000).toFixed(2).replace(/\.00$/, "")} Cr`;
+  return `₹${(n / 100000).toFixed(2).replace(/\.00$/, "")} L`;
+};
 
 function toggle(list: string[], id: string) {
   return list.includes(id) ? list.filter((x) => x !== id) : [...list, id];
 }
+
 
 function Index() {
   const [region, setRegion] = useState("all");
